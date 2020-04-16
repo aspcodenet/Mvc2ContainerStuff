@@ -1,0 +1,22 @@
+﻿@model Mvc2DemoDay1.ViewModels.ValidationDemoViewModel
+
+@{
+    ViewData["Title"] = "Test";
+}
+
+<div class="text-center">
+
+    <form asp-controller="Validation" asp-action="Index" method="post">
+        <div class="form-group">
+            @Html.DisplayFor(model => model.Name)
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Enter name" })
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
